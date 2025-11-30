@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L0 - Understanding and Navigating the DOM</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        .container {
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background-color: white;
+            text-align: center;
+            border: 1px solid #ccc;
+            width: 80%;
+            max-width: 500px;
+            transition: background-color 0.5s ease;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="main-header">Original Title</h1>
+        <p>This is the first paragraph.</p>
+        <p>This is the second paragraph.</p>
+        <p>This is the third paragraph.</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            const headerElement = document.getElementById('main-header');
+            if (headerElement) {
+                headerElement.textContent = "Welcome to the DOM World!";
+            }
+            const paragraphs = document.getElementsByTagName('p');
+            for (let i = 0; i < paragraphs.length; i++) {
+                paragraphs[i].style.color = 'blue';
+            }
+            const containerDiv = document.querySelector('.container');
+            if (containerDiv) {
+                containerDiv.style.backgroundColor = '#fff9c4';
+            }
+
+            console.log("DOM Manipulation tasks completed.");
+        });
+    </script>
+</body>
+</html>
